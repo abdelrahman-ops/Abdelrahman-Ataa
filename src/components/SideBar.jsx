@@ -1,11 +1,16 @@
 // import React from 'react'
-import { useEffect, useState } from "react";
+
 import { FaGithub, FaWhatsapp, FaLinkedinIn, FaFacebookF, FaDiscord, FaTelegramPlane, FaPhoneAlt } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdOutlineMailOutline, MdOutlineLocationOn } from "react-icons/md";
 import { SiCodeforces } from "react-icons/si";
+
+import useWindowWidth from "../hooks/Small";
+
 const SideBar = () => {
-    const[show , setShow] = useState(true);
+    
+    const show = useWindowWidth(768);
+
     const profileData = {
         email: "abdelrahmanataa17@gmail.com",
         phone: "+201015372301",
@@ -22,25 +27,7 @@ const SideBar = () => {
         ],
     };
 
-    useEffect(() => {
-        // Function to check screen size and set `show` accordingly
-        const handleResize = () => {
-            if (window.innerWidth < 768) { // You can adjust 768px as per your requirement for "small" screens
-                setShow(false);
-            } else {
-                setShow(true);
-            }
-        };
-
-        // Run the function once on component mount
-        handleResize();
-
-        // Add event listener for window resize
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener on component unmount
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    
     
     return (
         <> 

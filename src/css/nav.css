@@ -1,0 +1,27 @@
+ul a{
+    font-size: 17px;
+    font-weight: 500;
+}
+ul a.active {
+    border-bottom: 1px solid black;
+}
+
+
+ul a::after {
+    content: '';
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    background-color: #494949;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+ul a.active::after, ul a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
