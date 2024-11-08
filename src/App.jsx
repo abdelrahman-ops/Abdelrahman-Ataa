@@ -7,6 +7,7 @@ import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
+import Experience from './pages/Experience';
 
 
 
@@ -19,6 +20,7 @@ function App() {
 				<Profile />
 				<About />
 				<Skills />
+				<Experience />
 				<Projects />
 				<Services />
 				<Contact />
