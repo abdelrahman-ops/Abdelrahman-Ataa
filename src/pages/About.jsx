@@ -1,9 +1,21 @@
 import Title from "../components/Title"
-
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const About = () => {
+    
+    const { ref, inView } = useInView({
+        triggerOnce: true, // Trigger animation only once when it enters view
+        threshold: 0.3, // Trigger when 30% of the section is in view
+    });
+
     return (
-        <div className="my-20">
+        <motion.div 
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+            transition={{ duration: 0.6 }}
+            className="my-20">
             <div className="w-full border  shadow-md rounded-lg p-6">
                         {/* Profile Header */}
                         <div className="flex items-center flex-wrap justify-between">
@@ -27,7 +39,7 @@ const About = () => {
                         </div>
                     </div>
                     
-        </div>
+        </motion.div>
     )
 }
 
