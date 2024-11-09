@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import Experience from './pages/Experience';
+import Exp2 from './pages/Exp2';
 
 
 
@@ -21,6 +22,7 @@ function App() {
 				<About />
 				<Skills />
 				<Experience />
+				<Exp2 />
 				<Projects />
 				<Services />
 				<Contact />

@@ -18,13 +18,11 @@ const About = () => {
             className="my-20">
             <div className="w-full border  shadow-md rounded-lg p-6">
                         {/* Profile Header */}
-                        <div className="flex items-center flex-wrap justify-between">
-                            <div className="flex items-center gap-4">
-                                <div>
-                                    <p className="text-lg font-semibold text-center">
-                                        <Title text1="About" text2="Me" />
-                                    </p>
-                                </div>
+                        <div className="flex justify-center items-center flex-wrap mb-5">
+                            <div>
+                                <p className="text-4xl font-semibold text-center">
+                                    <Title text1="About" text2="Me" />
+                                </p>
                             </div>
                         </div>
                         <div className="space-y-3">

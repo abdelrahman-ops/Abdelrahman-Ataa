@@ -1,6 +1,8 @@
 import Title from "../components/Title"
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Frontend from "../components/Frontend";
+import Backend from "../components/Backend";
 
 const Skills = () => {
     
@@ -26,13 +28,11 @@ const Skills = () => {
             className="my-20">
                 <div className="w-full border shadow-md rounded-lg p-6">
                     {/* Profile Header */}
-                    <div className="flex items-center flex-wrap justify-between">
-                        <div className="flex items-center gap-4">
-                            <div>
-                                <p className="text-lg font-semibold text-center">
-                                    <Title text1="" text2="Skills" />
-                                </p>
-                            </div>
+                    <div className="flex justify-center items-center flex-wrap mb-5">
+                        <div>
+                            <p className="text-4xl font-semibold text-center">
+                                <Title text1="My" text2="Skills" />
+                            </p>
                         </div>
                     </div>
                     <div className="space-y-3 mt-6">
@@ -63,6 +63,24 @@ const Skills = () => {
                     </div>
                 </div>
             </motion.div>
+
+            
+            
+            
+            <section className="skills section" id="skills">
+                <div className="flex justify-center items-center flex-wrap mb-5">
+                    <div>
+                        <p className="text-4xl font-semibold text-center">
+                            <Title text1="My" text2="Skills" />
+                        </p>
+                    </div>
+                </div>
+
+                <div className="skills__container container grid">
+                    <Frontend />
+                    <Backend />
+                </div>
+            </section>
         </div>
     )
 }

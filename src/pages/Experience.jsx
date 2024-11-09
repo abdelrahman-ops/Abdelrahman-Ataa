@@ -20,7 +20,7 @@ const Experience = () => {
             >
                 <div className="w-full border shadow-md rounded-lg p-6">
                     {/* Section Header */}
-                    <div className="flex justify-center items-center mb-10">
+                    <div className="flex justify-center items-center mb-5">
                         <p className="text-4xl font-semibold">
                             <Title text1="" text2="Experience" />
                         </p>
