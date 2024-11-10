@@ -1,8 +1,8 @@
 import Title from "../components/Title"
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Frontend from "../components/Frontend";
-import Backend from "../components/Backend";
+// import Frontend from "../components/Frontend";
+// import Backend from "../components/Backend";
 
 const Skills = () => {
     
@@ -67,7 +67,7 @@ const Skills = () => {
             
             
             
-            <section className="skills section" id="skills">
+            {/* <section className="skills section" id="skills">
                 <div className="flex justify-center items-center flex-wrap mb-5">
                     <div>
                         <p className="text-4xl font-semibold text-center">
@@ -80,7 +80,7 @@ const Skills = () => {
                     <Frontend />
                     <Backend />
                 </div>
-            </section>
+            </section> */}
         </div>
     )
 }

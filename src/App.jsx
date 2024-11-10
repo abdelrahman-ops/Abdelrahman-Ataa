@@ -7,7 +7,7 @@ import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
-import Experience from './pages/Experience';
+// import Experience from './pages/Experience';
 import Exp2 from './pages/Exp2';
 
 
@@ -21,7 +21,7 @@ function App() {
 				<Profile />
 				<About />
 				<Skills />
-				<Experience />
+				{/* <Experience /> */}
 				<Exp2 />
 				<Projects />
 				<Services />
