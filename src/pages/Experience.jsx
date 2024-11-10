@@ -62,7 +62,7 @@ const Experience = () => {
 
                         {/* Courses Section (Left side) */}
                         <motion.div
-                            initial={{ opacity: 0, x: -100 }}
+                            initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                             className="flex justify-start mb-12"

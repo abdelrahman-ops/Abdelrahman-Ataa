@@ -292,3 +292,10 @@ img{
   display: inline-flex;
   align-items: center;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .qualification__data > motion.div {
+      transform: none !important;
+      opacity: 1 !important;
+  }
+}
