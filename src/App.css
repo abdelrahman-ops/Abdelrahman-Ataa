@@ -41,26 +41,3 @@
   color: #888;
 } */
 
-:root {
-  --body-font: "Poppins" , sans-serif;
-}
-
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body,
-button,
-input,
-textarea{
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-

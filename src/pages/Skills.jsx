@@ -76,7 +76,7 @@ const Skills = () => {
                     </div>
                 </div>
 
-                <div className="skills__container container grid">
+                <div className="skills__container container grid gap-6">
                     <Frontend />
                     <Backend />
                 </div>
