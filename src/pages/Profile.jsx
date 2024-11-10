@@ -26,7 +26,7 @@ const Profile = () => {
             } else {
                 clearInterval(interval);
             }
-        }, 100); // Adjust speed as needed
+        }, 100);
 
         return () => clearInterval(interval);
     }, []);
