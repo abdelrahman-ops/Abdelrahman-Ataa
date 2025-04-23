@@ -1,5 +1,4 @@
-import ecom from "../../../public/projects/ecom.png";
-import gpa2 from "../../../public/projects/gpa2.png";
+
 
 export const projects = [
         {
@@ -7,7 +6,7 @@ export const projects = [
             title: "Lumira E-Commerce",
             description: "A full-featured online store with cart functionality, payments, and admin dashboard built with MERN stack.",
             technologies: ["React", "Node.js", "MongoDB", "Express", "TailwindCSS"],
-            image: ecom,
+            image: '/projects/ecom.png',
             links: {
                 github: "https://github.com/abdelrahman-ops/Lumira-ECommerce",
                 live: "https://44ever.netlify.app/"
@@ -20,7 +19,7 @@ export const projects = [
             title: "GPA Calculator",
             description: "An intuitive GPA calculator with semester tracking and grade prediction using React and Tailwind CSS.",
             technologies: ["React", "TailwindCSS"],
-            image: gpa2,
+            image: '/projects/gpa.png',
             links: {
                 github: "https://github.com/abdelrahman-ops/gpa-calculator",
                 live: "https://calcmygpa.netlify.app/"
