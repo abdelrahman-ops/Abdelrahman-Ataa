@@ -1,7 +1,5 @@
-
-
-import ecom from "../projects/ecom.png";
-import gpa2 from "../projects/gpa2.png";
+import ecom from "../../../public/projects/ecom.png";
+import gpa2 from "../../../public/projects/gpa2.png";
 
 export const projects = [
         {
