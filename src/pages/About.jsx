@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 import Title from "../components/Title";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
