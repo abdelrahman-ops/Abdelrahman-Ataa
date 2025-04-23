@@ -1,93 +1,39 @@
 /* eslint-disable react/prop-types */
-// import { motion } from 'framer-motion';
-
 const Image = ({ imageSrc }) => {
     return (
-        <>
-            <div className="relative flex h-48 w-48 group">
-    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-0 group-hover:opacity-75"></span>
-    <img src={imageSrc} alt="My Image" className="relative inline-flex h-48 w-48 rounded-full object-cover bg-sky-500" />
-</div>
-
-
-            {/* <div className="relative flex items-center justify-center">
-                
-                <div 
-                    className="absolute w-64 h-64 rounded-full 
-                        bg-gradient-to-r 
-                        from-slate-500 
-                        via-slate-800
-                        to-slate-900 animate-spin-slow-ease p-1">
-                    
-                    <div className="absolute w-full h-full rounded-full border-4 border-opacity-50 border-gray-300 blur-lg" />
-                </div>
-
-                
-                <img
-                    src={imageSrc}
-                    alt="Profile"
-                    className="relative w-60 h-60 rounded-full object-cover shadow-lg "
-                />
-            </div> */}
-        
-        
-            {/* <div className="relative inline-block"> 
-            <motion.div
-                className="absolute inset-0 rounded-full border-8 border-transparent shadow-lg"
-                style={{
-                    boxShadow: 'inset 0 0 0 8px rgba(255, 255, 255, 0.3)',
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-            />
+        <div className="relative flex h-48 w-48 group perspective-1000">
+            {/* Holographic glow effect */}
+            <span className="absolute inset-0 rounded-full bg-cyan-500/10 blur-md group-hover:opacity-100 opacity-0 transition-opacity duration-500"></span>
             
-            <motion.img
-                src={imageSrc}
-                alt="Profile"
-                className="relative w-64 h-64 object-cover rounded-bl-3xl"
-                style={{
-                    backgroundPosition: '50%',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    animation: 'profile_animate 8s ease-in-out 1s infinite',
-                }}
-            />
-            <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-            </svg> */}
-
-            {/* <div className="relative flex items-center justify-center">
-                <div className="absolute rounded-full border-4 border-dashed border-blue-500 animate-spin w-64 h-64" />
-                <img
-                    src={imageSrc}
-                    alt="Profile"
-                    className="relative w-60 h-60 rounded-full object-cover"
+            {/* Pulsing cyberpunk ring */}
+            <span className="absolute -inset-2 rounded-full border-2 border-cyan-400/30 group-hover:border-cyan-400/70 transition-all duration-700 animate-[spin_8s_linear_infinite]"></span>
+            
+            {/* Main image with morph effect */}
+            <div className="relative h-48 w-48 overflow-hidden">
+                <img 
+                    src={imageSrc} 
+                    alt="Profile" 
+                    className="h-full w-full object-cover rounded-full transition-all duration-500 
+                    group-hover:scale-105 group-hover:brightness-110
+                    animate-[morph_8s_ease-in-out_infinite] border-2 border-cyan-400/20"
                 />
-            </div> */}
-
-
-            {/* <div className="relative w-64 h-64 flex items-center justify-center">
-                <div
-                    className="absolute inset-0 w-full h-full rounded-full animate-gradientShift"
+            </div>
+            
+            {/* Floating particles */}
+            {[...Array(5)].map((_, i) => (
+                <span 
+                    key={i}
+                    className={`absolute rounded-full bg-cyan-400/60 group-hover:opacity-80 opacity-0 transition-opacity duration-300`}
                     style={{
-                    background: 'linear-gradient(120deg, #ff6b6b, #f0abfc, #4fd1c5)',
-                    backgroundSize: '200% 200%',
-                    animation: 'gradientShift 6s ease-in-out infinite',
-                    maskImage: 'radial-gradient(circle, transparent 70%, black 72%)',
-                    WebkitMaskImage: 'radial-gradient(circle, transparent 70%, black 72%)',
+                        width: `${Math.random() * 4 + 2}px`,
+                        height: `${Math.random() * 4 + 2}px`,
+                        top: `${Math.random() * 30 + 10}%`,
+                        left: `${Math.random() * 30 + 10}%`,
+                        animation: `float${i % 3} ${Math.random() * 5 + 5}s infinite ease-in-out`
                     }}
                 />
-                <img
-                    src={imageSrc}
-                    alt="Profile"
-                    className="w-60 h-60 rounded-full object-cover border-4 border-transparent"
-                />
-            </div> 
+            ))}
         </div>
-        */}
-        
-        </>
-        
-
     );
 };
 
