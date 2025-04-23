@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Title from "../components/Title";
 import ProjectCard from "../components/ProductCard";
 import { projects } from "../assets/data/projectsData.js";
-
+console.log(projects); // Add this right after the import
 const Projects = () => {
   return (
     <motion.section 

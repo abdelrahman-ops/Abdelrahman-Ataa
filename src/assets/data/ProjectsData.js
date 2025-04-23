@@ -1,6 +1,7 @@
+
+
 import ecom from "../projects/ecom.png";
 import gpa2 from "../projects/gpa2.png";
-
 
 export const projects = [
         {
