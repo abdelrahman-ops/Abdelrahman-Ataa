@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Title from "../components/Title";
 import ProjectCard from "../components/ProductCard";
-import { projects } from "../assets/data/projectsData";
+import { projects } from "../assets/data/projectsData.js";
 
 const Projects = () => {
   return (
