@@ -290,7 +290,7 @@ const Exp2 = () => {
             </div>
 
             {/* CSS for grid animation */}
-            <style jsx>{`
+            <style>{`
                 .bg-grid-animation {
                     background-image: 
                         linear-gradient(to right, ${colors.primary}20 1px, transparent 1px),
