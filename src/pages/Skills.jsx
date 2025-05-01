@@ -124,7 +124,7 @@ const Skills = () => {
     <motion.section
       ref={ref}
       id="skills"
-      className="py-20 bg-gradient-to-br from-gray-900 to-gray-950 overflow-hidden relative"
+      className="py-20  overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.8 }}

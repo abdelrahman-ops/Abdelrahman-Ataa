@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaServer, FaDesktop, FaCode } from "react-icons/fa";
 import ProjectCard from "../components/ProductCard";
-import { projects } from "../assets/data/projectsData";
+import { projects } from "../constant/data";
 import Text from "../components/Title";
 const Projects = () => {
 	const [activeFilter, setActiveFilter] = useState("all");
@@ -24,7 +24,7 @@ const Projects = () => {
 		});
 
 	return (
-		<div className="min-h-screen bg-gray-900 overflow-x-hidden">
+		<div className="min-h-screen  overflow-x-hidden">
 		{/* Cyberpunk grid background */}
 		<div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
 			<div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsIDAsIDI1NSwgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')]"></div>

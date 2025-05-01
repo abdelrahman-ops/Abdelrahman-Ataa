@@ -127,12 +127,12 @@ const Exp2 = () => {
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
             transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
             className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
-            style={{ background: `linear-gradient(135deg, ${colors.darker} 0%, ${colors.dark} 100%)` }}
+            // style={{ background: `linear-gradient(135deg, ${colors.darker} 0%, ${colors.dark} 100%)` }}
         >
             {/* Animated grid background */}
-            <div className="absolute inset-0 overflow-hidden opacity-20">
+            {/* <div className="absolute inset-0 overflow-hidden opacity-20">
                 <div className="absolute inset-0 bg-grid-animation"></div>
-            </div>
+            </div> */}
             
             {/* Glow effect */}
             <div 

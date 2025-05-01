@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import SideBar from '../components/SideBar';
@@ -13,7 +12,7 @@ const Profile = () => {
     const [showKanji, setShowKanji] = useState(true);
     const show = useWindowWidth(768);
 
-    // Animated name transition (only runs once on mount)
+    // **Animated Name Transition (Cyberpunk-style)**
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowKanji(false);
@@ -42,26 +41,27 @@ const Profile = () => {
             }, 100);
 
             return () => clearInterval(interval);
-        }, 1500); // Initial delay before transition starts
+        }, 1500);
 
         return () => clearTimeout(timer);
-    }, []); // Empty dependency array ensures this runs only once
+    }, []);
 
     return (
-        <div className="min-h-screen bg-gray-900 relative overflow-hidden">
-            {/* Futuristic grid background */}
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')] opacity-20"></div>
-            
-            {/* Floating tech circles */}
-            <div className="absolute top-1/4 -left-20 w-60 h-60 bg-cyan-500/5 rounded-full filter blur-3xl"></div>
-            <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-500/5 rounded-full filter blur-3xl"></div>
-            
-            {/* Binary code rain effect */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(30)].map((_, i) => (
+        <div className="min-h-screen bg-[#0a0a0a] relative overflow-hidden">
+            {/* === FUTURISTIC BACKGROUND === */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                {/* **Holographic Grid** */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjcGF0dGVybikiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')] opacity-20"></div>
+
+                {/* **Neon Glow Spots** */}
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[90px] animate-pulse"></div>
+
+                {/* **Floating Binary Particles** */}
+                {/* {[...Array(20)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute text-green-400/20 text-xs font-mono"
+                        className="absolute text-green-400/10 font-mono text-xs"
                         style={{
                             left: `${Math.random() * 100}%`,
                             top: '-20px'
@@ -77,11 +77,12 @@ const Profile = () => {
                     >
                         {Math.random().toString(2).substring(2, 12)}
                     </motion.div>
-                ))}
+                ))} */}
             </div>
 
-            <div className="container mx-auto pt-12 px-4 max-w-6xl relative z-10">
-                {/* Futuristic Name Section */}
+            {/* === MAIN CONTENT === */}
+            <div className="container mx-auto pt-16 px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+                {/* **Cyber Name Header** */}
                 <motion.div 
                     className="flex flex-col items-center mb-16"
                     initial={{ opacity: 0, y: -20 }}
@@ -89,11 +90,11 @@ const Profile = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className="relative group">
-                        {/* Neon name effect */}
-                        <div className="absolute inset-0 rounded-lg bg-cyan-500/10 blur-md group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+                        {/* **Glowing Name Effect** */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-md group-hover:opacity-50 transition-all duration-500"></div>
                         
                         <motion.h1 
-                            className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 font-mono relative tracking-tighter"
+                            className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-mono tracking-tighter"
                             whileHover={{ scale: 1.02 }}
                         >
                             <span className="block text-center">
@@ -101,9 +102,9 @@ const Profile = () => {
                             </span>
                         </motion.h1>
                         
-                        {/* Cyber divider */}
+                        {/* **Neon Divider** */}
                         <motion.div 
-                            className="h-1 mt-6 bg-gradient-to-r from-cyan-500/0 via-cyan-500 to-purple-500/0 w-3/4 mx-auto"
+                            className="h-1 mt-6 bg-gradient-to-r from-blue-500/0 via-blue-500 to-purple-500/0 w-3/4 mx-auto"
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             transition={{ delay: 0.4, duration: 1 }}
@@ -115,42 +116,41 @@ const Profile = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6 }}
                         >
-                            <span className="text-cyan-400 font-medium">//</span> Digital portfolio of a future builder
+                            <span className="text-blue-400 font-medium">//</span> Digital architect of the future
                         </motion.p>
                     </div>
                 </motion.div>
 
-                {/* Main Content Area */}
+                {/* **Hero & Sidebar Layout** */}
                 <motion.div 
                     className="flex flex-col lg:flex-row gap-8 mb-16"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
                 >
-                    {/* Sidebar - Always shown but order changes */}
+                    {/* **Sidebar (Responsive Order)** */}
                     <motion.div 
                         className={`${show ? 'lg:w-1/4 order-first' : 'lg:w-1/4 order-last'}`}
-                        whileHover={{ 
-                            y: -5
-                        }}
+                        whileHover={{ y: -5 }}
                     >
                         <SideBar />
                     </motion.div>
                     
-                    {/* Hero Section */}
+                    {/* **Hero Section (Floating Effect)** */}
                     <motion.div 
                         className={`${show ? 'lg:w-3/4' : 'lg:w-3/4'}`}
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 1 }}
+                        whileHover={{ y: -5 }}
                     >
                         <Hero />
                     </motion.div>
                 </motion.div>
 
-                {/* Cyber footer */}
+                {/* **Cyber Glow Footer** */}
                 <motion.div 
-                    className="h-px bg-gradient-to-r from-cyan-500/0 via-cyan-500 to-purple-500/0 my-10"
+                    className="h-px bg-gradient-to-r from-blue-500/0 via-blue-500 to-purple-500/0 my-10"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
