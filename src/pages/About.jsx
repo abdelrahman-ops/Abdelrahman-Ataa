@@ -1,189 +1,125 @@
-import React from "react";
-import Title from "../components/Title";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaCode, FaServer, FaMobile, FaBrain, FaDownload } from "react-icons/fa";
-import { SiBlockchaindotcom } from "react-icons/si";
+import { FaCode, FaServer, FaInfinity, FaTerminal, FaFileDownload } from 'react-icons/fa';
+import Title from '../components/Title';
+import SectionReveal from '../components/SectionReveal';
+import { personalInfo } from '../data/profileData';
+
+const coreSkills = [
+    { name: "Frontend Architecture", icon: <FaCode />, level: "95%" },
+    { name: "Backend Engineering", icon: <FaServer />, level: "85%" },
+    { name: "System Design", icon: <FaTerminal />, level: "80%" },
+    { name: "DevOps & CI/CD", icon: <FaInfinity />, level: "75%" }
+];
 
 const About = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    });
 
-  const handleButtonClick = () => {
-    const link = document.createElement("a");
-    link.href = "../assets/Abdelrahman Ataa Mohamed CV.pdf";
-    link.download = "Abdelrahman Ataa Mohamed CV.pdf";
-    link.click();
-  };
+    const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark'); // Fallback logic just in case it's not needed outside rendering cycle
 
-  // Tech skills data
-  const skills = [
-    { name: "Frontend Architecture", icon: <FaCode className="text-blue-400" />, delay: 0.4 },
-    { name: "Backend Systems", icon: <FaServer className="text-cyan-400" />, delay: 0.5 },
-    { name: "Mobile Development", icon: <FaMobile className="text-purple-400" />, delay: 0.6 },
-    { name: "AI Integration", icon: <FaBrain className="text-amber-400" />, delay: 0.7 },
-    { name: "Blockchain Tech", icon: <SiBlockchaindotcom className="text-green-400" />, delay: 0.8 }
-  ];
-
-  return (
-    <motion.section
-      ref={ref}
-      id="about"
-      className="py-20 bg-[#0a0a0a] relative overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: inView ? 1 : 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Holographic grid background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjcGF0dGVybikiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
-      </div>
-
-      {/* Floating tech particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-blue-500/10"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -50],
-              opacity: [0.1, 0.8, 0.1],
-              x: [0, (Math.random() - 0.5) * 20]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 5,
-              repeat: Infinity,
-              delay: Math.random() * 3
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Title text1="About" text2="Me" />
-          <motion.p
-            className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <span className="text-blue-400">//</span> Engineering digital experiences at the intersection of innovation and precision
-          </motion.p>
-        </motion.div>
-
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Introduction */}
-          <motion.div
-            className="bg-gray-900/70 backdrop-blur-md rounded-xl border border-gray-800 p-8 shadow-xl"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              Who I Am
-            </h3>
-            <div className="space-y-4">
-              <motion.p
-                className="text-gray-300 leading-relaxed"
+    return (
+        <SectionReveal>
+            <motion.section 
+                ref={ref}
+                id="about" 
+                className="py-12 relative overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                I'm a <span className="font-medium text-blue-400">Full-Stack Developer</span> specializing in building high-performance applications with cutting-edge technologies. My work focuses on creating seamless bridges between elegant interfaces and robust backend architectures.
-              </motion.p>
-              <motion.p
-                className="text-gray-300 leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: inView ? 1 : 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                With expertise spanning the entire development stack, I engineer solutions that are <span className="font-medium text-purple-400">scalable</span>, <span className="font-medium text-cyan-400">efficient</span>, and <span className="font-medium text-amber-400">user-centric</span>.
-              </motion.p>
-            </div>
-          </motion.div>
+                transition={{ duration: 0.8 }}
+            >
+                {/* Background decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-          {/* Skills */}
-          <motion.div
-            className="bg-gray-900/70 backdrop-blur-md rounded-xl border border-gray-800 p-8 shadow-xl"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-              Core Expertise
-            </h3>
-            <ul className="space-y-4">
-              {skills.map((skill, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center group"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -20 }}
-                  transition={{ delay: skill.delay }}
-                >
-                  <div className="text-xl mr-4 group-hover:scale-110 transition-transform">
-                    {skill.icon}
-                  </div>
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
-                    {skill.name}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+                    <div className="text-center mb-16">
+                        <Title text1="About" text2="Me" />
+                    </div>
 
-        {/* CTA */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-          transition={{ delay: 1 }}
-        >
-          <motion.button
-            onClick={handleButtonClick}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-lg font-medium cursor-pointer group relative overflow-hidden"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <span className="relative z-10 flex items-center">
-              <span className="mr-3">Download Resume</span>
-              <motion.span
-                animate={{ 
-                  x: [0, 4, 0],
-                  transition: { 
-                    repeat: Infinity,
-                    duration: 2 
-                  } 
-                }}
-              >
-                <FaDownload />
-              </motion.span>
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          </motion.button>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
+                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                        {/* Text Content */}
+                        <motion.div 
+                            className="w-full lg:w-1/2 space-y-6"
+                            initial={{ x: -50, opacity: 0 }}
+                            animate={{ x: inView ? 0 : -50, opacity: inView ? 1 : 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-6">
+                                Initializing <span className="text-cyan-600 dark:text-cyan-400">Developer_Profile...</span>
+                            </h3>
+                            
+                            <div className="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                                <p className="mb-6">{personalInfo.aboutIntro}</p>
+                                <p className="mb-6">{personalInfo.aboutDetail}</p>
+                            </div>
+
+                            {/* Resume Download CTA */}
+                            <motion.div 
+                                className="pt-6"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                                transition={{ delay: 0.6 }}
+                            >
+                                <a 
+                                    href={`/${personalInfo.cvFileName}`}
+                                    download
+                                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-cyan-500/40 transform hover:-translate-y-1"
+                                >
+                                    <FaFileDownload className="text-xl" />
+                                    <span>Download Source Code (CV)</span>
+                                </a>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Core Skills Cards */}
+                        <motion.div 
+                            className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6"
+                            initial={{ x: 50, opacity: 0 }}
+                            animate={{ x: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                        >
+                            {coreSkills.map((skill, index) => (
+                                <motion.div 
+                                    key={index}
+                                    className="bg-white/60 dark:bg-gray-900/40 backdrop-blur-sm border border-gray-200 dark:border-gray-800 p-6 rounded-2xl hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-colors group relative overflow-hidden"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                                    transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    {/* Hover gradient background */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 dark:from-cyan-500/10 dark:to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="text-3xl text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 group-hover:text-purple-500 transition-all">
+                                            {skill.icon}
+                                        </div>
+                                        <h4 className="text-lg font-bold text-gray-800 dark:text-white mb-3">{skill.name}</h4>
+                                        
+                                        {/* Progress Bar Container */}
+                                        <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5 mb-1 overflow-hidden">
+                                            <motion.div 
+                                                className="bg-gradient-to-r from-cyan-500 to-purple-500 h-1.5 rounded-full"
+                                                initial={{ width: 0 }}
+                                                animate={{ width: inView ? skill.level : 0 }}
+                                                transition={{ duration: 1, delay: 0.8 + (index * 0.1), ease: "easeOut" }}
+                                            />
+                                        </div>
+                                        <div className="text-right text-xs font-mono text-cyan-600 dark:text-cyan-400">
+                                            {skill.level}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </div>
+                </div>
+            </motion.section>
+        </SectionReveal>
+    );
 };
 
 export default About;
