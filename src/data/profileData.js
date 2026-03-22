@@ -16,7 +16,7 @@ export const personalInfo = {
     email: "abdelrahmanataa17@gmail.com",
     phone: "+2001015372301",
     location: "Cairo, Egypt",
-    cvFileName: "Abdelrahman Ataa Mohamed CV.pdf",
+    cvFileName: "Abdelrahman Ataa Mohamed.pdf",
 };
 
 export const socialAccounts = [

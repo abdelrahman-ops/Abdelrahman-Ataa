@@ -1,26 +1,23 @@
-import React from 'react';
-
+/**
+ * Section title — clean, minimal, Japanese-accented.
+ * No glitch effects, no pulsing blobs, no random particles.
+ */
 const Title = ({ text1, text2 }) => {
     return (
-        <div className="relative inline-block">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase font-japanese relative z-10">
-                <span className="text-gray-800 dark:text-white transition-colors duration-500">{text1} </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-600 dark:from-cyan-400 dark:to-purple-500"
-                      style={{ filter: "drop-shadow(0px 0px 8px rgba(0, 255, 255, 0.4))" }}>
+        <div className="relative inline-block py-2">
+            {/* Authentic Japanese Brush Stroke (Behind text) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[120%] pointer-events-none opacity-[0.04] dark:opacity-[0.05] z-0 flex items-center justify-center -rotate-2">
+                <svg viewBox="0 0 200 60" preserveAspectRatio="none" className="w-full h-full fill-current text-gray-900 dark:text-white">
+                    <path d="M5,30 Q40,15 100,25 T195,30 Q150,45 100,35 T5,30 Z" />
+                </svg>
+            </div>
+
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight uppercase relative z-10">
+                <span className="text-gray-800 dark:text-white/90">{text1} </span>
+                <span className="text-gray-500 dark:text-gray-400">
                     {text2}
                 </span>
             </h2>
-            
-            {/* Cyberpunk Underscore */}
-            <div className="absolute -bottom-3 left-0 w-full flex items-center h-1">
-                <div className="w-8 h-1 bg-cyan-500 shadow-[0_0_8px_#0ff]"></div>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-transparent opacity-50"></div>
-                <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#f0f] animate-pulse"></div>
-            </div>
-
-            {/* Decorative particles behind title */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-cyan-400/10 dark:bg-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-xl animate-pulse delay-75"></div>
         </div>
     );
 };

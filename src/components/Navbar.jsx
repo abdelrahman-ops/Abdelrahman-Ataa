@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { isDark, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,12 +27,12 @@ const Navbar = () => {
                     {/* Logo with glow effect */}
                     <motion.a 
                         href="#home" 
-                        className="text-cyan-600 dark:text-cyan-400 text-lg font-mono relative group"
+                        className="text-sakura-500 dark:text-neon-cyan text-lg font-kosugi relative group font-bold tracking-widest"
                         whileHover={{ scale: 1.05 }}
                     >
-                        <span className="relative z-10">ABDELRAHMAN_ATAA</span>
-                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                        <span className="absolute inset-0 bg-cyan-400/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative z-10 transition-all duration-300 group-hover:text-sakura-500 dark:group-hover:neon-text-cyan">ABDELRAHMAN_ATAA</span>
+                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-sakura-500 dark:bg-neon-cyan scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 shadow-[0_0_8px_#ffb7c5] dark:shadow-[0_0_10px_#00ffff]"></span>
+                        <span className="absolute inset-0 bg-sakura-500/10 dark:bg-neon-cyan/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     </motion.a>
 
                     {/* Desktop Navigation */}
@@ -44,37 +41,18 @@ const Navbar = () => {
                             <motion.a
                                 key={item}
                                 href={`#${item.toLowerCase()}`}
-                                className="relative px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 text-sm font-mono group transition-colors"
+                                className="relative px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-sakura-600 dark:hover:text-neon-cyan text-sm font-kosugi group transition-colors"
                                 whileHover={{ y: -2 }}
                             >
-                                <span className="relative z-10">{item}</span>
-                                <span className="absolute -bottom-1 left-4 right-4 h-0.5 bg-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                                <span className="absolute inset-0 bg-cyan-400/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                <span className="relative z-10 transition-all duration-300 group-hover:text-sakura-500 dark:group-hover:neon-text-cyan">{item}</span>
+                                <span className="absolute -bottom-1 left-4 right-4 h-0.5 bg-sakura-500 dark:bg-neon-cyan scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 shadow-[0_0_5px_#ffb7c5] dark:shadow-[0_0_8px_#00ffff]"></span>
+                                <span className="absolute inset-0 bg-sakura-500/10 dark:bg-neon-cyan/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                             </motion.a>
                         ))}
-                        
-                        {/* Theme Toggle Button */}
-                        <motion.button
-                            onClick={toggleTheme}
-                            className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-yellow-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            aria-label="Toggle Theme"
-                        >
-                            {isDark ? <FaSun className="text-sm" /> : <FaMoon className="text-sm" />}
-                        </motion.button>
                     </div>
 
                     {/* Mobile Controls */}
                     <div className="flex md:hidden items-center gap-4">
-                        <motion.button
-                            onClick={toggleTheme}
-                            className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
-                            whileTap={{ scale: 0.9 }}
-                            aria-label="Toggle Theme"
-                        >
-                            {isDark ? <FaSun className="text-sm" /> : <FaMoon className="text-sm" />}
-                        </motion.button>
                         
                         {/* Menu button */}
                         <motion.button
@@ -85,21 +63,21 @@ const Navbar = () => {
                         >
                             <div className="w-6 flex flex-col gap-1.5 items-end">
                                 <motion.span 
-                                    className="h-0.5 bg-cyan-600 dark:bg-cyan-400 transition-all"
+                                    className="h-0.5 bg-sakura-500 dark:bg-neon-cyan transition-all shadow-[0_0_5px_#ffb7c5] dark:shadow-[0_0_5px_#00ffff]"
                                     animate={{
                                         width: mobileOpen ? '100%' : '100%',
                                         transform: mobileOpen ? 'rotate(45deg) translateY(6px)' : 'none'
                                     }}
                                 />
                                 <motion.span 
-                                    className="h-0.5 bg-cyan-600 dark:bg-cyan-400 transition-all"
+                                    className="h-0.5 bg-sakura-500 dark:bg-neon-cyan transition-all shadow-[0_0_5px_#ffb7c5] dark:shadow-[0_0_5px_#00ffff]"
                                     animate={{
                                         width: mobileOpen ? '0%' : '80%',
                                         opacity: mobileOpen ? 0 : 1
                                     }}
                                 />
                                 <motion.span 
-                                    className="h-0.5 bg-cyan-600 dark:bg-cyan-400 transition-all"
+                                    className="h-0.5 bg-sakura-500 dark:bg-neon-cyan transition-all shadow-[0_0_5px_#ffb7c5] dark:shadow-[0_0_5px_#00ffff]"
                                     animate={{
                                         width: mobileOpen ? '100%' : '60%',
                                         transform: mobileOpen ? 'rotate(-45deg) translateY(-6px)' : 'none'
@@ -115,7 +93,7 @@ const Navbar = () => {
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div 
-                        className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800/50 overflow-hidden"
+                        className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-sakura-300/30 dark:border-neon-cyan/20 overflow-hidden shadow-[0_4px_20px_rgba(255,183,197,0.2)] dark:shadow-[0_4px_20px_rgba(0,255,255,0.1)]"
                         initial={{ height: 0 }}
                         animate={{ height: 'auto' }}
                         exit={{ height: 0 }}
@@ -126,13 +104,13 @@ const Navbar = () => {
                                 <motion.a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
-                                    className="flex items-center py-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 text-sm font-mono border-b border-gray-100 dark:border-gray-800/50 last:border-0"
+                                    className="flex items-center py-3 text-gray-700 dark:text-gray-300 hover:text-sakura-600 dark:hover:text-neon-cyan text-sm font-kosugi border-b border-gray-100 dark:border-gray-800/50 last:border-0 transition-colors group"
                                     onClick={() => setMobileOpen(false)}
                                     initial={{ x: -50, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: index * 0.1 }}
                                 >
-                                    <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
+                                    <span className="w-2 h-2 bg-sakura-500 dark:bg-neon-cyan rounded-full mr-3 group-hover:shadow-[0_0_8px_#ffb7c5] dark:group-hover:shadow-[0_0_8px_#00ffff]"></span>
                                     {item}
                                 </motion.a>
                             ))}

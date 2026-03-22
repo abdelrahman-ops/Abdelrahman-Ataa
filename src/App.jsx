@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
@@ -7,12 +8,27 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Journey from './pages/Journey';
 import CyberBackground from './components/CyberBackground';
+import Preloader from './components/Preloader';
+import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider } from './context/ThemeContext';
 
 const App = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        if (!isLoaded) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isLoaded]);
+
     return (
         <ThemeProvider>
-            <div className="min-h-screen text-gray-900 dark:text-gray-100 font-poppins relative overflow-x-hidden transition-colors duration-500">
+            <Preloader onComplete={() => setIsLoaded(true)} />
+            <ThemeToggle />
+            
+            <div className="min-h-screen text-gray-900 dark:text-gray-100 font-inter relative overflow-x-hidden transition-colors duration-500">
                 <CyberBackground />
                 
                 <div className="relative z-10">
