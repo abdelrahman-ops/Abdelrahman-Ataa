@@ -1,105 +1,92 @@
-/* eslint-disable no-unused-vars */
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { FaServer, FaDesktop, FaCode } from "react-icons/fa";
-import ProjectCard from "../components/ProductCard";
-import { projects } from "../constant/data";
-import Text from "../components/Title";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { FaServer, FaDesktop, FaTerminal } from 'react-icons/fa';
+import ProjectCard from '../components/ProjectCard';
+import ProjectPocket from '../components/ProjectPocket';
+import { projects } from '../data/projectsData';
+import Title from '../components/Title';
+import SectionReveal from '../components/SectionReveal';
+
+const filters = [
+    { key: 'all', label: 'All', icon: null },
+    { key: 'frontend', label: 'Frontend', icon: <FaDesktop /> },
+    { key: 'backend', label: 'Backend', icon: <FaServer /> },
+    { key: 'fullstack', label: 'Full Stack', icon: <FaTerminal /> },
+];
+
 const Projects = () => {
-	const [activeFilter, setActiveFilter] = useState("all");
+    const [activeFilter, setActiveFilter] = useState('all');
+    const [isExpanded, setIsExpanded] = useState(false); // Track if pocket is open
 
-	const filteredProjects = activeFilter === "all" 
-		? projects 
-		: projects.filter(project => {
-			if (activeFilter === "frontend") {
-			return ["HTML", "CSS", "JavaScript", "React", "TailwindCSS", "Next.js"].some(tech => 
-				project.technologies.includes(tech)
-			);
-			} else if (activeFilter === "backend") {
-			return ["Node.js", "Express", "MongoDB", "Prisma"].some(tech => 
-				project.technologies.includes(tech)
-			);
-			}
-			return true;
-		});
+    const handleFilterChange = (key) => {
+        setActiveFilter(key);
+        setIsExpanded(false); // Collapse pocket when changing categories
+    };
 
-	return (
-		<div className="min-h-screen  overflow-x-hidden">
-		{/* Cyberpunk grid background */}
-		<div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
-			<div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsIDAsIDI1NSwgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')]"></div>
-		</div>
+    const filteredProjects = projects.filter((p) => {
+        if (activeFilter === 'all') return true;
+        if (activeFilter === 'frontend') return p.type === 'frontend' || p.type === 'fullstack';
+        if (activeFilter === 'backend') return p.type === 'backend' || p.type === 'fullstack';
+        return p.type === activeFilter;
+    });
 
-		{/* Neon border effects */}
-		{/* <div className="fixed inset-0 border-4 border-transparent pointer-events-none z-20">
-			<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-cyan-500"></div>
-			<div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-purple-500 to-cyan-500"></div>
-			<div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-purple-500 to-cyan-500"></div>
-			<div className="absolute bottom-0 left-0 w-1 h-full bg-gradient-to-t from-purple-500 to-cyan-500"></div>
-		</div> */}
+    // Initial load: 4 projects. If expanded: all.
+    const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 4);
+    const remainingCount = filteredProjects.length - visibleProjects.length;
 
-		<div className="relative z-10 container mx-auto px-4 py-20">
-			{/* Header */}
-			<div className="text-center mb-16">
-			<motion.h1 
-				className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 mb-6"
-				initial={{ opacity: 0, y: -20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8 }}
-			>
-				<Text text1="My" text2="Projects" />
-			</motion.h1>
-			
-			<motion.p
-				className="text-xl text-gray-300 max-w-3xl mx-auto"
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ delay: 0.3 }}
-			>
-				Cutting-edge digital experiences powered by modern technologies
-			</motion.p>
+    return (
+        <SectionReveal>
+            <section id="projects" className="section-container">
+                <div className="section-header">
+                    <Title text1="My" text2="Projects" />
+                    <p className="section-subtitle">
+                        Cutting-edge digital experiences powered by modern technologies
+                    </p>
 
-			{/* Filter buttons */}
-			<motion.div 
-				className="flex justify-center gap-4 mt-8 flex-wrap"
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ delay: 0.5 }}
-			>
-				{['all', 'frontend', 'backend'].map((filter) => (
-				<motion.button
-					key={filter}
-					onClick={() => setActiveFilter(filter)}
-					className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-					activeFilter === filter 
-						? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/30'
-						: 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
-					}`}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-				>
-					{filter === 'frontend' && <FaDesktop />}
-					{filter === 'backend' && <FaServer />}
-					{filter.charAt(0).toUpperCase() + filter.slice(1)}
-				</motion.button>
-				))}
-			</motion.div>
-			</div>
+                    {/* Filter buttons */}
+                    <div className="flex justify-center gap-3 mt-6 flex-wrap">
+                        {filters.map((filter) => (
+                            <motion.button
+                                key={filter.key}
+                                onClick={() => handleFilterChange(filter.key)}
+                                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                                    activeFilter === filter.key
+                                        ? 'bg-gradient-to-r from-sakura-500 to-indigo-neon dark:from-neon-cyan dark:to-neon-pink text-white shadow-lg'
+                                        : 'bg-white/60 dark:bg-gray-800/60 text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700/50'
+                                }`}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                {filter.icon}
+                                {filter.label}
+                            </motion.button>
+                        ))}
+                    </div>
+                </div>
 
-			{/* Projects Grid */}
-			<div className="grid gap-16">
-			{filteredProjects.map((project, index) => (
-				<ProjectCard 
-				key={project.id} 
-				project={project} 
-				index={index}
-				reverse={index % 2 === 0} // Alternate layout
-				/>
-			))}
-			</div>
-		</div>
-		</div>
-	);
+                {/* Projects List */}
+                <div className="space-y-16">
+                    {visibleProjects.map((project, index) => (
+                        <ProjectCard key={project.id} project={project} index={index} reverse={index % 2 === 0} />
+                    ))}
+                    
+                    {/* The 3D Glass Pocket for remaining projects */}
+                    {!isExpanded && remainingCount > 0 && (
+                        <ProjectPocket 
+                            remainingCount={remainingCount} 
+                            onClick={() => setIsExpanded(true)} 
+                        />
+                    )}
+                </div>
+
+                {filteredProjects.length === 0 && (
+                    <div className="text-center py-20">
+                        <p className="text-gray-500 text-lg font-mono">No projects found for "{activeFilter}"</p>
+                    </div>
+                )}
+            </section>
+        </SectionReveal>
+    );
 };
 
 export default Projects;

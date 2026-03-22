@@ -1,216 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-
-.font-japanese {
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-body {
-  background-color: #FFF5EE;
-}
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Kosugi+Maru&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-/* src/index.css or a dedicated CSS file */
-/* @keyframes profile_animate {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 2s linear infinite;
-}
-
-
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.6;
-  }
-}
-
-.animate-pulse-effect {
-  animation: pulse 2s infinite ease-in-out;
-  border-color: #023047;
-  opacity: 0.8;
-} */
-
-
-
-
-
-
-.zigzag-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 4px solid transparent;
-  border-image: linear-gradient(135deg, #ff006e 16%, transparent 16%) 1;
-  border-radius: 50%;
-  animation: zigzag-animation 2s infinite ease-in-out;
-}
-
-@keyframes zigzag-animation {
-  0% {
-      transform: rotate(0deg);
-  }
-  50% {
-      transform: rotate(5deg);
-  }
-  100% {
-      transform: rotate(0deg);
-  }
-}
-
-
-/* Add this in your CSS file */
-
-
-
-
-/* Add this in your CSS file */
-
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS
+   ══════════════════════════════════════════════ */
 :root {
-  --body-font: "Poppins" , sans-serif;
-  --header-height: 3rem;
+  /* Typography */
+  --body-font: "Inter", sans-serif;
+  --font-japanese: "Noto Sans JP", sans-serif;
+  --font-accent: "Kosugi Maru", sans-serif;
 
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
-  --container-color: hsl(var(--hue), var(--sat), 20%);
+  /* Layout */
+  --section-max-w: 72rem;
+  --section-px: 1.5rem;
+  --section-py: 4rem;
 
+  /* Color Roles — Light Mode */
+  --color-primary: #c93a3a; /* smooth crimson */
+  --color-accent: #c4a777; /* soft gold */
+  --color-highlight: #a62b2b;
+  --color-surface: rgba(255, 255, 255, 0.7);
+  --color-surface-solid: #ffffff;
+  --color-surface-border: rgba(0, 0, 0, 0.08);
+  --color-text: #2d2d2d;
+  --color-text-muted: #6b7280;
+  --color-bg: #fcfbf9; /* Soft white paper */
 
-  --big-font-size: 3.5rem;
-  --h1-font-size: 2.25rem;
-  --h2-font-size: 1.5rem;
-  --h3-font-size: 1.25rem;
-  --normal-font-size: 1rem;
-  --small-font-size: 0.875rem;
-  --smaller-font-size: 0.813rem;
-  --tiny-font-size: 0.625rem;
-
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semi-bold: 600;
-
-  --mb-0-25: 0.25rem;
-  --mb-0-5: 0.5rem;
-  --mb-0-75: 0.75rem;
-  --mb-1: 1rem;
-  --mb-1-5: 1.5rem;
-  --mb-2: 2rem;
-  --mb-2-5: 2.5rem;
-  --mb-3: 3rem;
-
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal: 1000;
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 700ms;
 }
 
+.dark {
+  --color-primary: #e84a4a; /* vibrant crimson */
+  --color-accent: #d4b783; /* vibrant gold */
+  --color-highlight: #c93a3a;
+  --color-surface: rgba(18, 18, 18, 0.7);
+  --color-surface-solid: #121212;
+  --color-surface-border: rgba(255, 255, 255, 0.06);
+  --color-text: #e5e5e5;
+  --color-text-muted: #9ca3af;
+  --color-bg: #0a0d16; /* Deep navy */
+}
 
-*{
+/* ══════════════════════════════════════════════
+   GLOBAL RESET
+   ══════════════════════════════════════════════ */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -220,131 +62,148 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-button,
-input,
-textarea{
+body {
   font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+  font-size: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 500ms ease, color 500ms ease;
 }
 
-body{
-  /* background-color: var(--body-color); */
-  /* color: var(--text-color); */
+button, input, textarea {
+  font-family: var(--body-font);
+  font-size: 1rem;
 }
 
-h1 , h1 , h3 {
-  /* color: var(--title-color); */
-  /* font-weight: var(--font-semi-bold); */
+ul { list-style: none; }
+a { text-decoration: none; }
+button { cursor: pointer; border: none; outline: none; }
+img { max-width: 100%; height: auto; }
+
+/* ══════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ══════════════════════════════════════════════ */
+.font-japanese {
+  font-family: var(--font-japanese);
+}
+.font-kosugi {
+  font-family: var(--font-accent);
 }
 
-ul{
-  list-style: none;
-}
-a{
-  text-decoration: none;
-}
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-img{
-  max-width: 100%;
-  height: auto;
+/* ══════════════════════════════════════════════
+   LAYOUT — Section Container
+   ══════════════════════════════════════════════ */
+.section-container {
+  max-width: var(--section-max-w);
+  margin: 0 auto;
+  padding: var(--section-py) var(--section-px);
+  position: relative;
 }
 
-.section{
-  padding: 6rem 0 2rem;
-}
-
-.section__title{
-  font-size: var(--h1-font-size);
-  color: var(--title-color);
-}
-
-.section__subtitle{
-  display: block;
-  font-size: var(--small-font-size);
-  margin-bottom: 4rem;
-}
-
-.section__title,
-.section__subtitle{
+.section-header {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
-/* .container{
-  max-width: 968px;
-  margin-left: auto;
-  margin-right: auto;
-} */
-/* .grid{
-  display: grid;
-  gap: 1.5rem;
-} */
-
-.button{
-  display: inline-block;
-  background-color: var(--title-color);
-  color: var(--container-color);
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
-  font-weight: var(--font-medium);
-}
-.button:hover{
-  background-color: var(--title-color-dark);
-}
-.button__icon{
-  margin-left: var(--mb-0-5);
-}
-.button--flex{
-  display: inline-flex;
-  align-items: center;
+.section-subtitle {
+  font-family: var(--font-accent);
+  color: var(--color-text-muted);
+  max-width: 36rem;
+  margin: 1rem auto 0;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .qualification__data > motion.div {
-      transform: none !important;
-      opacity: 1 !important;
-  }
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection colors */
+/* ══════════════════════════════════════════════
+   SELECTION & SCROLLBAR
+   ══════════════════════════════════════════════ */
 ::selection {
-  background: rgba(34, 211, 238, 0.3);
-  color: #f3f4f6;
+  background: rgba(255, 0, 255, 0.25);
+  color: #fff;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #111827;
-}
-::-webkit-scrollbar-thumb {
-  background: #06b6d4;
-  border-radius: 4px;
+  width: 6px;
+  height: 6px;
 }
 
-/* Floating animation */
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ══════════════════════════════════════════════
+   JAPANESE CYBERPUNK UTILITIES
+   ══════════════════════════════════════════════ */
+.neon-text-pink {
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.neon-box-cyan {
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4), inset 0 0 4px rgba(0, 255, 255, 0.15);
+}
+
+.shoji-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.dark .shoji-pattern {
+  background-image:
+    linear-gradient(rgba(255, 0, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ══════════════════════════════════════════════
+   CARD SURFACE (unified across all sections)
+   ══════════════════════════════════════════════ */
+.card-surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color var(--duration-normal) ease, box-shadow var(--duration-normal) ease;
+}
+
+.card-surface:hover {
+  border-color: var(--color-primary);
+}
+
+.dark .card-surface:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════ */
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-15px) rotate(5deg); }
 }
 
-/* Glow effect for text */
-.text-glow {
-  text-shadow: 0 0 10px rgba(104, 151, 255, 0.3);
+@keyframes window-scroll {
+  0% { top: 0; }
+  100% { top: 100%; }
 }
 
-/* Optional: Add this class to the gradient text for extra glow */
-.hover-glow:hover {
-  text-shadow: 0 0 15px rgba(104, 151, 255, 0.5);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
